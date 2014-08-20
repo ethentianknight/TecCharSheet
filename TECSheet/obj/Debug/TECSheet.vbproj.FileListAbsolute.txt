@@ -12,3 +12,17 @@ C:\Users\Mark\Documents\Visual Studio 2013\Projects\TECSheet\TECSheet\bin\Debug\
 C:\Users\Mark\Documents\Visual Studio 2013\Projects\TECSheet\TECSheet\bin\Debug\TECSheet.application
 C:\Users\Mark\Documents\Visual Studio 2013\Projects\TECSheet\TECSheet\obj\Debug\TECSheet.exe.manifest
 C:\Users\Mark\Documents\Visual Studio 2013\Projects\TECSheet\TECSheet\obj\Debug\TECSheet.application
+C:\Users\Mark\Documents\GitHub\TecCharSheet\TECSheet\bin\Debug\TECSheet.exe.config
+C:\Users\Mark\Documents\GitHub\TecCharSheet\TECSheet\obj\Debug\TECSheet.exe
+C:\Users\Mark\Documents\GitHub\TecCharSheet\TECSheet\obj\Debug\TECSheet.xml
+C:\Users\Mark\Documents\GitHub\TecCharSheet\TECSheet\obj\Debug\TECSheet.pdb
+C:\Users\Mark\Documents\GitHub\TecCharSheet\TECSheet\bin\Debug\TECSheet.exe.manifest
+C:\Users\Mark\Documents\GitHub\TecCharSheet\TECSheet\bin\Debug\TECSheet.application
+C:\Users\Mark\Documents\GitHub\TecCharSheet\TECSheet\bin\Debug\TECSheet.exe
+C:\Users\Mark\Documents\GitHub\TecCharSheet\TECSheet\bin\Debug\TECSheet.pdb
+C:\Users\Mark\Documents\GitHub\TecCharSheet\TECSheet\bin\Debug\TECSheet.xml
+C:\Users\Mark\Documents\GitHub\TecCharSheet\TECSheet\obj\Debug\TECSheet.frmMain.resources
+C:\Users\Mark\Documents\GitHub\TecCharSheet\TECSheet\obj\Debug\TECSheet.Resources.resources
+C:\Users\Mark\Documents\GitHub\TecCharSheet\TECSheet\obj\Debug\TECSheet.vbproj.GenerateResource.Cache
+C:\Users\Mark\Documents\GitHub\TecCharSheet\TECSheet\obj\Debug\TECSheet.exe.manifest
+C:\Users\Mark\Documents\GitHub\TecCharSheet\TECSheet\obj\Debug\TECSheet.application
