@@ -340,18 +340,15 @@ Public Class frmMain
                 inventory(i) = lstInventory.Items(i)
                 i += 1
             End While
-        Else
-            inventory(0) = ""
         End If
+
         Dim abilities(lstAbilities.Items.Count) As String
         If lstAbilities.Items.Count > 0 Then
             Dim j As Integer = 0
-            While j + 1 < (lstInventory.Items.Count)
+            While j < (lstAbilities.Items.Count)
                 abilities(j) = lstAbilities.Items(j)
                 j += 1
             End While
-        Else
-            abilities(0) = ""
         End If
 
         Dim player() As String =
@@ -467,41 +464,34 @@ Public Class frmMain
             Dim k As Integer = 0
             lstInventory.Items.Clear()
             While k < inventory.Count
-                If inventory(k) <> "" Then
-                    lstInventory.Items.Add(inventory(k))
-                End If
+                lstInventory.Items.Add(inventory(k))
                 k += 1
             End While
         Catch ex As Exception
             MsgBox("No inventory found!")
         End Try
-        Try
-            lstInventory.SelectedIndex -= 1
-        Catch ex As Exception
-        End Try
+            lstInventory.SelectedIndex = 0
 
-        Dim abilFile As String = Application.StartupPath & "\" & txtName.Text & "abilities.txt"
-        Try
-            Dim abilities() As String = IO.File.ReadAllLines(abilFile)
-            Dim l As Integer = 0
-            lstAbilities.Items.Clear()
-            While l < abilities.Count
-                If abilities(l) <> "" Then
-                    lstAbilities.Items.Add(abilities(l))
-                End If
-                l += 1
-            End While
-        Catch ex As Exception
-            MsgBox("No abilities found!")
-        End Try
-        Try
-            lstAbilities.SelectedIndex -= 1
-        Catch ex As Exception
-        End Try
+            Dim abilFile As String = Application.StartupPath & "\" & txtName.Text & "abilities.txt"
+            Try
+                Dim abilities() As String = IO.File.ReadAllLines(abilFile)
+                Dim l As Integer = 0
+                lstAbilities.Items.Clear()
+                While l < abilities.Count
+                lstAbilities.Items.Add(abilities(l))
+                    l += 1
+                End While
+            Catch ex As Exception
+                MsgBox("No abilities found!")
+            End Try
+            Try
+                lstAbilities.SelectedIndex -= 1
+            Catch ex As Exception
+            End Try
 
 
 
-        UpdateAll()
+            UpdateAll()
     End Sub
 
     Private Sub btnAPCalc_Click(sender As Object, e As EventArgs) Handles btnAPCalc.Click
