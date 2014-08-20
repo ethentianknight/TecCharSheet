@@ -3,6 +3,7 @@
 'Very alpha.
 
 Public Class frmMain
+
     Function UpdateAll() As Integer
         Try
             Dim dexDodgeBonus As Integer
@@ -276,32 +277,31 @@ Public Class frmMain
 
     Private Sub btnAdd_Click(sender As Object, e As EventArgs) Handles btnAdd.Click
         lstInventory.Items.Add(txtInventoryCount.Text & vbTab & txtInventoryName.Text & vbTab & txtInventoryWeight.Text)
-        Try
-            lstInventory.SelectedIndex -= 1
-        Catch ex As Exception
-
-        End Try
+        lstInventory.SelectedIndex = lstInventory.Items.Count - 1
     End Sub
 
     Private Sub btnInventorySubtract_Click(sender As Object, e As EventArgs) Handles btnInventorySubtract.Click
+        Dim selectedItem As Integer = lstInventory.SelectedIndex
         Try
-            lstInventory.Items.RemoveAt(lstInventory.SelectedIndex)
+            lstInventory.Items.RemoveAt(selectedItem)
+            lstInventory.SelectedIndex = selectedItem - 1
+            If lstInventory.SelectedIndex < 0 Then
+                Try
+                    lstInventory.SelectedIndex = 0
+                Catch ex As Exception
+                End Try
+            End If
         Catch ex As Exception
-            MsgBox("Please select an object to remove!")
-        End Try
-        Try
-            lstInventory.SelectedIndex -= 1
-        Catch ex As Exception
-
+            MsgBox("Please select an Item to remove!")
         End Try
     End Sub
 
     Private Sub btnInventoryUpdate_Click(sender As Object, e As EventArgs) Handles btnInventoryUpdate.Click
+        Dim selectedItem As Integer = lstInventory.SelectedIndex
         Try
-            Dim listIndex As Integer = lstInventory.SelectedIndex
-            lstInventory.Items.RemoveAt(listIndex)
-            lstInventory.Items.Insert(listIndex, txtInventoryCount.Text & vbTab & txtInventoryName.Text & vbTab & txtInventoryWeight.Text)
-
+            lstInventory.Items.RemoveAt(selectedItem)
+            lstInventory.Items.Insert(selectedItem, txtInventoryCount.Text & vbTab & txtInventoryName.Text & vbTab & txtInventoryWeight.Text)
+            lstInventory.SelectedIndex = selectedItem
         Catch ex As Exception
             MsgBox("Please select an item to update!")
         End Try
@@ -318,9 +318,16 @@ Public Class frmMain
         Try
             lstAbilities.Items.RemoveAt(selectedItem)
             lstAbilities.SelectedIndex = selectedItem - 1
+            If lstAbilities.SelectedIndex < 0 Then
+                Try
+                    lstAbilities.SelectedIndex = 0
+                Catch ex As Exception
+                End Try
+            End If
         Catch ex As Exception
             MsgBox("Please select an ability to remove!")
         End Try
+
 
     End Sub
 
@@ -473,28 +480,23 @@ Public Class frmMain
         Catch ex As Exception
             MsgBox("No inventory found!")
         End Try
-            lstInventory.SelectedIndex = 0
+        lstInventory.SelectedIndex = 0
 
-            Dim abilFile As String = Application.StartupPath & "\" & txtName.Text & "abilities.txt"
-            Try
-                Dim abilities() As String = IO.File.ReadAllLines(abilFile)
-                Dim l As Integer = 0
-                lstAbilities.Items.Clear()
-                While l < abilities.Count
+        Dim abilFile As String = Application.StartupPath & "\" & txtName.Text & "abilities.txt"
+        Try
+            Dim abilities() As String = IO.File.ReadAllLines(abilFile)
+            Dim l As Integer = 0
+            lstAbilities.Items.Clear()
+            While l < abilities.Count
                 lstAbilities.Items.Add(abilities(l))
-                    l += 1
-                End While
-            Catch ex As Exception
-                MsgBox("No abilities found!")
-            End Try
-            Try
-                lstAbilities.SelectedIndex -= 1
-            Catch ex As Exception
-            End Try
+                l += 1
+            End While
+        Catch ex As Exception
+            MsgBox("No abilities found!")
+        End Try
+        lstAbilities.SelectedIndex = 0
 
-
-
-            UpdateAll()
+        UpdateAll()
     End Sub
 
     Private Sub btnAPCalc_Click(sender As Object, e As EventArgs) Handles btnAPCalc.Click
@@ -533,4 +535,5 @@ Public Class frmMain
             txtHPTemp.Text = txtHPTot.Text
         End If
     End Sub
+
 End Class
