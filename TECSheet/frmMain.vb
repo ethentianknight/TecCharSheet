@@ -310,25 +310,28 @@ Public Class frmMain
 
     Private Sub btnAbilityAdd_Click(sender As Object, e As EventArgs) Handles btnAbilityAdd.Click
         lstAbilities.Items.Add(txtAbilityStack.Text & vbTab & txtAbilityName.Text & vbTab & txtAbilityCost.Text & "/" & txtAbilityCostStack.Text)
-
+        lstAbilities.SelectedIndex = lstAbilities.Items.Count - 1
     End Sub
 
     Private Sub btnAbilitySubtract_Click(sender As Object, e As EventArgs) Handles btnAbilitySubtract.Click
+        Dim selectedItem As Integer = lstAbilities.SelectedIndex
         Try
-            lstAbilities.Items.RemoveAt(lstAbilities.SelectedIndex)
+            lstAbilities.Items.RemoveAt(selectedItem)
+            lstAbilities.SelectedIndex = selectedItem - 1
         Catch ex As Exception
-            MsgBox("Please select an object to remove!")
+            MsgBox("Please select an ability to remove!")
         End Try
+
     End Sub
 
     Private Sub btnAbilityUpdate_Click(sender As Object, e As EventArgs) Handles btnAbilityUpdate.Click
+        Dim selectedItem As Integer = lstAbilities.SelectedIndex
         Try
-            Dim listIndex As Integer = lstAbilities.SelectedIndex
-            lstAbilities.Items.RemoveAt(listIndex)
-            lstAbilities.Items.Insert(listIndex, txtAbilityStack.Text & vbTab & txtAbilityName.Text & vbTab & txtAbilityCost.Text & "/" & txtAbilityCostStack.Text)
-
+            lstAbilities.Items.RemoveAt(selectedItem)
+            lstAbilities.Items.Insert(selectedItem, txtAbilityStack.Text & vbTab & txtAbilityName.Text & vbTab & txtAbilityCost.Text & "/" & txtAbilityCostStack.Text)
+            lstAbilities.SelectedIndex = selectedItem
         Catch ex As Exception
-            MsgBox("Please select an item to update!")
+            MsgBox("Please select an ability to update!")
         End Try
     End Sub
 
