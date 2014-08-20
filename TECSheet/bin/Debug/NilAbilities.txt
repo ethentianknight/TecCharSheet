@@ -1,0 +1,6 @@
+1	Lucky	50/5
+1	Boost	50/20
+1	Tuning	20/15
+2	Endurance	25/25
+	Lucky Dodge	50/
+

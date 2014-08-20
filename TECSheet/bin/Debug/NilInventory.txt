@@ -1,0 +1,7 @@
+570	Iron	
+2	Silver	
+4	Gold	
+1	Dragon Claws	
+10	Rations	1
+1	Backpack	20
+
