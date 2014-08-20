@@ -523,7 +523,7 @@ Public Class frmMain
                 txtAPTotal.Text = 50
             End If
             txtAPNormalGain.Text = CInt(txtAPNormalGain.Text) / CInt(txtPartySize.Text)
-            apGain = CInt(txtAPNormalGain.Text) / CInt((CInt(txtAPTotal.Text) + 49) / 100)
+            apGain += CInt(txtAPNormalGain.Text) / CInt((CInt(txtAPTotal.Text) + 49) / 100)
             txtAPTotal.Text = CInt(txtAPTotal.Text) + apGain
             txtAPCurrent.Text = CInt(txtAPCurrent.Text) + apGain
             txtAPNormalGain.Text = 0
