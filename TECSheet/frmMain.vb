@@ -2,9 +2,11 @@
 'Mark Davis, 2014
 'Very alpha.
 
+Imports System.Runtime.InteropServices
+
 Public Class frmMain
 
-    Function UpdateAll() As Integer
+    Sub UpdateAll()
         Try
             Dim dexDodgeBonus As Integer
             Dim lckDodgeBonus As Integer
@@ -51,7 +53,7 @@ Public Class frmMain
         Catch ex As Exception
             MsgBox("Something went wrong. Try again.")
         End Try
-    End Function
+    End Sub
 
     Function Roll20(ByVal rollBonus As Integer) As Integer()
         UpdateAll()
@@ -87,58 +89,68 @@ Public Class frmMain
         Return ReturnNum
     End Function
 
-    Private Sub cbNameEnabled_CheckedChanged(sender As Object, e As EventArgs) Handles cbNameEnabled.CheckedChanged
-        txtName.Enabled = cbNameEnabled.Checked
-    End Sub
-
-    Private Sub cbSTREnabled_CheckedChanged(sender As Object, e As EventArgs) Handles cbSTREnabled.CheckedChanged
-        txtSTR.Enabled = cbSTREnabled.Checked
+    Private Sub Tog_CheckedChanged(sender As Object, e As EventArgs) Handles cbKPTog.CheckedChanged,
+        cbLPTog.CheckedChanged,
+        cbPPTog.CheckedChanged,
+        cbMPTog.CheckedChanged,
+        cbHPTog.CheckedChanged,
+        cbLCKEnabled.CheckedChanged,
+        cbMNDEnabled.CheckedChanged,
+        cbDEXEnabled.CheckedChanged,
+        cbSTREnabled.CheckedChanged,
+        cbNameEnabled.CheckedChanged
+        Dim rb As CheckBox = CType(sender, CheckBox),con As Control = CType(rb.Tag, Control)
+        con.Enabled = rb.Checked
         UpdateAll()
     End Sub
 
-    Private Sub cbDEXEnabled_CheckedChanged(sender As Object, e As EventArgs) Handles cbDEXEnabled.CheckedChanged
-        txtDex.Enabled = cbDEXEnabled.Checked
-        UpdateAll()
-    End Sub
+    Private Sub frmMain_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        cbKPTog.Tag = txtKPTot
+        cbLPTog.Tag = txtKPTot
+        cbPPTog.Tag = txtPPTot
+        cbMPTog.Tag = txtMPTot
+        cbHPTog.Tag = txtHPTot
+        cbLCKEnabled.Tag = txtLCK
+        cbMNDEnabled.Tag = txtMND
+        cbDEXEnabled.Tag = txtDex
+        cbSTREnabled.Tag = txtSTR
+        cbNameEnabled.Tag = txtName
+        btnRollSTR.Tag = txtSTR
+        btnRollDEX.Tag = txtDex
+        btnRollMND.Tag = txtMND
+        btnRollLCK.Tag = txtMND
+        btnRollDodge.Tag = txtDodgeTot
+        btnRollPerception.Tag = txtPerceptionTot
+        btnRollHit.Tag = txtHitTot
+        btnAttack1Roll.Tag = txtAttack1Tot
+        btnAttack2Roll.Tag = txtAttack2Tot
+        btnDmg1Roll.Tag = {txtDmg1Bonus, txtDMG1DieSides, txtDmg1DieCount}
+        btnDmg2Roll.Tag = {txtDmg2Bonus, txtDmg2DieSides, txtDmg2DieCount}
 
-    Private Sub cbMNDEnabled_CheckedChanged(sender As Object, e As EventArgs) Handles cbMNDEnabled.CheckedChanged
-        txtMND.Enabled = cbMNDEnabled.Checked
-        UpdateAll()
-    End Sub
-
-    Private Sub cbLCKEnabled_CheckedChanged(sender As Object, e As EventArgs) Handles cbLCKEnabled.CheckedChanged
-        txtLCK.Enabled = cbLCKEnabled.Checked
-        UpdateAll()
-    End Sub
-
-    Private Sub cbHPTog_CheckedChanged(sender As Object, e As EventArgs) Handles cbHPTog.CheckedChanged
-        txtHPTot.Enabled = cbHPTog.Checked
-        UpdateAll()
-    End Sub
-
-    Private Sub cbMPTog_CheckedChanged(sender As Object, e As EventArgs) Handles cbMPTog.CheckedChanged
-        txtMPTot.Enabled = cbMPTog.Checked
-        UpdateAll()
-    End Sub
-
-    Private Sub cbPPTog_CheckedChanged(sender As Object, e As EventArgs) Handles cbPPTog.CheckedChanged
-        txtPPTot.Enabled = cbPPTog.Checked
-        UpdateAll()
-    End Sub
-
-    Private Sub cbLPTog_CheckedChanged(sender As Object, e As EventArgs) Handles cbLPTog.CheckedChanged
-        txtLPTot.Enabled = cbLPTog.Checked
-        UpdateAll()
+        SendMessage(Me.txtName.Handle, &H1501, 0, "Name")
+        SendMessage(Me.txtInventoryCount.Handle, &H1501, 0, "#")
+        SendMessage(Me.txtInventoryName.Handle, &H1501, 0, "Name")
+        SendMessage(Me.txtInventoryWeight.Handle, &H1501, 0, "Weight")
+        SendMessage(Me.txtAbilityStack.Handle, &H1501, 0, "#")
+        SendMessage(Me.txtAbilityName.Handle, &H1501, 0, "Name")
+        SendMessage(Me.txtAbilityCost.Handle, &H1501, 0, "Cst")
+        SendMessage(Me.txtAbilityCostStack.Handle, &H1501, 0, "Stk")
 
     End Sub
 
-    Private Sub cbKPTog_CheckedChanged(sender As Object, e As EventArgs) Handles cbKPTog.CheckedChanged
-        txtKPTot.Enabled = cbKPTog.Checked
-        UpdateAll()
-    End Sub
-
-    Private Sub btnRollSTR_Click(sender As Object, e As EventArgs) Handles btnRollSTR.Click
-        Dim output() = Roll20(CInt(txtSTR.Text))
+    Private Sub btnRoll_Click(sender As Object, e As EventArgs) Handles btnRollSTR.Click,
+        btnRollDEX.Click,
+        btnRollMND.Click,
+        btnRollLCK.Click,
+        btnRollDodge.Click,
+        btnRollPerception.Click,
+        btnRollHit.Click,
+        btnAttack1Roll.Click,
+        btnAttack2Roll.Click,
+        btnDmg1Roll.Click,
+        btnDmg2Roll.Click
+        Dim tb As TextBox = CType(CType(sender, Button).Tag, TextBox)
+        Dim output() = Roll20(CInt(tb.Text))
         Dim roll As Integer = output(0)
         Dim fumble As Integer = output(1)
         txtOutput.Text = roll
@@ -167,111 +179,10 @@ Public Class frmMain
         End If
     End Sub
 
-    Private Sub btnRollMND_Click(sender As Object, e As EventArgs) Handles btnRollMND.Click
-        Dim output() = Roll20(CInt(txtMND.Text))
-        Dim roll As Integer = output(0)
-        Dim fumble As Integer = output(1)
-        txtOutput.Text = roll
-        If fumble = 0 Then
-            txtOutput.BackColor = Color.Black
-        ElseIf fumble = 2 Then
-            txtOutput.BackColor = Color.Yellow
-        Else
-            txtOutput.BackColor = Color.WhiteSmoke
-        End If
-    End Sub
-
-    Private Sub btnRollLCK_Click(sender As Object, e As EventArgs) Handles btnRollLCK.Click
-        Dim output() = Roll20(CInt(txtLCK.Text))
-        Dim roll As Integer = output(0)
-        Dim fumble As Integer = output(1)
-        txtOutput.Text = roll
-        If fumble = 0 Then
-            txtOutput.BackColor = Color.Black
-        ElseIf fumble = 2 Then
-            txtOutput.BackColor = Color.Yellow
-        Else
-            txtOutput.BackColor = Color.WhiteSmoke
-        End If
-    End Sub
-
-    Private Sub btnRollDodge_Click(sender As Object, e As EventArgs) Handles btnRollDodge.Click
-        Dim output() = Roll20(CInt(txtDodgeTot.Text))
-        Dim roll As Integer = output(0)
-        Dim fumble As Integer = output(1)
-        txtOutput.Text = roll
-        If fumble = 0 Then
-            txtOutput.BackColor = Color.Black
-        ElseIf fumble = 2 Then
-            txtOutput.BackColor = Color.Yellow
-        Else
-            txtOutput.BackColor = Color.WhiteSmoke
-        End If
-    End Sub
-
-    Private Sub btnRollPerception_Click(sender As Object, e As EventArgs) Handles btnRollPerception.Click
-        Dim output() = Roll20(CInt(txtPerceptionTot.Text))
-        Dim roll As Integer = output(0)
-        Dim fumble As Integer = output(1)
-        txtOutput.Text = roll
-        If fumble = 0 Then
-            txtOutput.BackColor = Color.Black
-        ElseIf fumble = 2 Then
-            txtOutput.BackColor = Color.Yellow
-        Else
-            txtOutput.BackColor = Color.WhiteSmoke
-        End If
-    End Sub
-
-    Private Sub btnRollHit_Click(sender As Object, e As EventArgs) Handles btnRollHit.Click
-        Dim output() = Roll20(CInt(txtHitTot.Text))
-        Dim roll As Integer = output(0)
-        Dim fumble As Integer = output(1)
-        txtOutput.Text = roll
-        If fumble = 0 Then
-            txtOutput.BackColor = Color.Black
-        ElseIf fumble = 2 Then
-            txtOutput.BackColor = Color.Yellow
-        Else
-            txtOutput.BackColor = Color.WhiteSmoke
-        End If
-    End Sub
-
-    Private Sub btnAttack1Roll_Click(sender As Object, e As EventArgs) Handles btnAttack1Roll.Click
-        Dim output() = Roll20(CInt(txtAttack1Tot.Text))
-        Dim roll As Integer = output(0)
-        Dim fumble As Integer = output(1)
-        txtOutput.Text = roll
-        If fumble = 0 Then
-            txtOutput.BackColor = Color.Black
-        ElseIf fumble = 2 Then
-            txtOutput.BackColor = Color.Yellow
-        Else
-            txtOutput.BackColor = Color.WhiteSmoke
-        End If
-    End Sub
-
-    Private Sub btnAttack2Roll_Click(sender As Object, e As EventArgs) Handles btnAttack2Roll.Click
-        Dim output() = Roll20(CInt(txtAttack2Tot.Text))
-        Dim roll As Integer = output(0)
-        Dim fumble As Integer = output(1)
-        txtOutput.Text = roll
-        If fumble = 0 Then
-            txtOutput.BackColor = Color.Black
-        ElseIf fumble = 2 Then
-            txtOutput.BackColor = Color.Yellow
-        Else
-            txtOutput.BackColor = Color.WhiteSmoke
-        End If
-    End Sub
-
-    Private Sub btnDmg1Roll_Click(sender As Object, e As EventArgs) Handles btnDmg1Roll.Click
-        txtOutput.Text = RollDNum(txtDmg1Bonus.Text, txtDMG1DieSides.Text, txtDmg1DieCount.Text)
-        txtOutput.BackColor = Color.WhiteSmoke
-    End Sub
-
-    Private Sub btnDmg2Roll_Click(sender As Object, e As EventArgs) Handles btnDmg2Roll.Click
-        txtOutput.Text = RollDNum(txtDmg2Bonus.Text, txtDmg2DieSides.Text, txtDmg2DieCount.Text)
+    Private Sub btnDmgRoll_Click(sender As Object, e As EventArgs) Handles btnDmg1Roll.Click,
+        btnDmg2Roll.Click
+        Dim vals As TextBox() = CType(sender, TextBox())
+        txtOutput.Text = RollDNum(vals(0).Text, vals(1).Text, vals(2).Text)
         txtOutput.BackColor = Color.WhiteSmoke
     End Sub
 
@@ -535,5 +446,9 @@ Public Class frmMain
             txtHPTemp.Text = txtHPTot.Text
         End If
     End Sub
+
+    <DllImport("user32.dll", CharSet:=CharSet.Auto)> _
+    Private Shared Function SendMessage(ByVal hWnd As IntPtr, ByVal msg As Integer, ByVal wParam As Integer, <MarshalAs(UnmanagedType.LPWStr)> ByVal lParam As String) As Int32
+    End Function
 
 End Class

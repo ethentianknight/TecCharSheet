@@ -26,3 +26,17 @@ C:\Users\Mark\Documents\GitHub\TecCharSheet\TECSheet\obj\Debug\TECSheet.exe.mani
 C:\Users\Mark\Documents\GitHub\TecCharSheet\TECSheet\obj\Debug\TECSheet.application
 C:\Users\Mark\Documents\GitHub\TecCharSheet\TECSheet\bin\Debug\TECSheet.xml
 C:\Users\Mark\Documents\GitHub\TecCharSheet\TECSheet\obj\Debug\TECSheet.xml
+C:\Users\Daniel\Documents\GitHub\TecCharSheet\TECSheet\bin\Debug\TECSheet.exe.config
+C:\Users\Daniel\Documents\GitHub\TecCharSheet\TECSheet\obj\Debug\TECSheet.exe
+C:\Users\Daniel\Documents\GitHub\TecCharSheet\TECSheet\obj\Debug\TECSheet.xml
+C:\Users\Daniel\Documents\GitHub\TecCharSheet\TECSheet\obj\Debug\TECSheet.pdb
+C:\Users\Daniel\Documents\GitHub\TecCharSheet\TECSheet\bin\Debug\TECSheet.exe.manifest
+C:\Users\Daniel\Documents\GitHub\TecCharSheet\TECSheet\bin\Debug\TECSheet.application
+C:\Users\Daniel\Documents\GitHub\TecCharSheet\TECSheet\bin\Debug\TECSheet.exe
+C:\Users\Daniel\Documents\GitHub\TecCharSheet\TECSheet\bin\Debug\TECSheet.pdb
+C:\Users\Daniel\Documents\GitHub\TecCharSheet\TECSheet\bin\Debug\TECSheet.xml
+C:\Users\Daniel\Documents\GitHub\TecCharSheet\TECSheet\obj\Debug\TECSheet.frmMain.resources
+C:\Users\Daniel\Documents\GitHub\TecCharSheet\TECSheet\obj\Debug\TECSheet.Resources.resources
+C:\Users\Daniel\Documents\GitHub\TecCharSheet\TECSheet\obj\Debug\TECSheet.vbproj.GenerateResource.Cache
+C:\Users\Daniel\Documents\GitHub\TecCharSheet\TECSheet\obj\Debug\TECSheet.exe.manifest
+C:\Users\Daniel\Documents\GitHub\TecCharSheet\TECSheet\obj\Debug\TECSheet.application

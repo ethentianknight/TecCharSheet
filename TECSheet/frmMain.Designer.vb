@@ -172,6 +172,8 @@ Partial Class frmMain
         Me.btnAbilityAdd = New System.Windows.Forms.Button()
         Me.txtAbilityStack = New System.Windows.Forms.TextBox()
         Me.GroupBox7 = New System.Windows.Forms.GroupBox()
+        Me.Label51 = New System.Windows.Forms.Label()
+        Me.txtPartySize = New System.Windows.Forms.TextBox()
         Me.btnAPCalc = New System.Windows.Forms.Button()
         Me.txtAPStraightGain = New System.Windows.Forms.TextBox()
         Me.Label53 = New System.Windows.Forms.Label()
@@ -183,8 +185,6 @@ Partial Class frmMain
         Me.txtOutput = New System.Windows.Forms.TextBox()
         Me.btnSave = New System.Windows.Forms.Button()
         Me.btnLoad = New System.Windows.Forms.Button()
-        Me.txtPartySize = New System.Windows.Forms.TextBox()
-        Me.Label51 = New System.Windows.Forms.Label()
         Me.grbStats.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
@@ -201,7 +201,6 @@ Partial Class frmMain
         Me.txtName.Name = "txtName"
         Me.txtName.Size = New System.Drawing.Size(100, 20)
         Me.txtName.TabIndex = 0
-        Me.txtName.Text = "Name"
         '
         'cbNameEnabled
         '
@@ -1522,7 +1521,6 @@ Partial Class frmMain
         Me.txtInventoryName.Name = "txtInventoryName"
         Me.txtInventoryName.Size = New System.Drawing.Size(97, 20)
         Me.txtInventoryName.TabIndex = 20
-        Me.txtInventoryName.Text = "Name"
         '
         'btnInventorySubtract
         '
@@ -1539,7 +1537,6 @@ Partial Class frmMain
         Me.txtInventoryWeight.Name = "txtInventoryWeight"
         Me.txtInventoryWeight.Size = New System.Drawing.Size(44, 20)
         Me.txtInventoryWeight.TabIndex = 7
-        Me.txtInventoryWeight.Text = "Weight"
         '
         'btnAdd
         '
@@ -1556,7 +1553,6 @@ Partial Class frmMain
         Me.txtInventoryCount.Name = "txtInventoryCount"
         Me.txtInventoryCount.Size = New System.Drawing.Size(26, 20)
         Me.txtInventoryCount.TabIndex = 3
-        Me.txtInventoryCount.Text = "#"
         '
         'GroupBox6
         '
@@ -1581,7 +1577,6 @@ Partial Class frmMain
         Me.txtAbilityCostStack.Name = "txtAbilityCostStack"
         Me.txtAbilityCostStack.Size = New System.Drawing.Size(29, 20)
         Me.txtAbilityCostStack.TabIndex = 43
-        Me.txtAbilityCostStack.Text = "Stk"
         '
         'lstAbilities
         '
@@ -1606,7 +1601,6 @@ Partial Class frmMain
         Me.txtAbilityName.Name = "txtAbilityName"
         Me.txtAbilityName.Size = New System.Drawing.Size(97, 20)
         Me.txtAbilityName.TabIndex = 20
-        Me.txtAbilityName.Text = "Name"
         '
         'btnAbilitySubtract
         '
@@ -1623,7 +1617,6 @@ Partial Class frmMain
         Me.txtAbilityCost.Name = "txtAbilityCost"
         Me.txtAbilityCost.Size = New System.Drawing.Size(29, 20)
         Me.txtAbilityCost.TabIndex = 7
-        Me.txtAbilityCost.Text = "Cst"
         '
         'btnAbilityAdd
         '
@@ -1640,7 +1633,6 @@ Partial Class frmMain
         Me.txtAbilityStack.Name = "txtAbilityStack"
         Me.txtAbilityStack.Size = New System.Drawing.Size(26, 20)
         Me.txtAbilityStack.TabIndex = 3
-        Me.txtAbilityStack.Text = "#"
         '
         'GroupBox7
         '
@@ -1660,6 +1652,23 @@ Partial Class frmMain
         Me.GroupBox7.TabIndex = 40
         Me.GroupBox7.TabStop = False
         Me.GroupBox7.Text = "AP"
+        '
+        'Label51
+        '
+        Me.Label51.AutoSize = True
+        Me.Label51.Location = New System.Drawing.Point(6, 81)
+        Me.Label51.Name = "Label51"
+        Me.Label51.Size = New System.Drawing.Size(54, 13)
+        Me.Label51.TabIndex = 41
+        Me.Label51.Text = "Party Size"
+        '
+        'txtPartySize
+        '
+        Me.txtPartySize.Location = New System.Drawing.Point(70, 78)
+        Me.txtPartySize.Name = "txtPartySize"
+        Me.txtPartySize.Size = New System.Drawing.Size(31, 20)
+        Me.txtPartySize.TabIndex = 40
+        Me.txtPartySize.Text = "0"
         '
         'btnAPCalc
         '
@@ -1754,23 +1763,6 @@ Partial Class frmMain
         Me.btnLoad.TabIndex = 45
         Me.btnLoad.Text = "Load"
         Me.btnLoad.UseVisualStyleBackColor = True
-        '
-        'txtPartySize
-        '
-        Me.txtPartySize.Location = New System.Drawing.Point(70, 78)
-        Me.txtPartySize.Name = "txtPartySize"
-        Me.txtPartySize.Size = New System.Drawing.Size(31, 20)
-        Me.txtPartySize.TabIndex = 40
-        Me.txtPartySize.Text = "0"
-        '
-        'Label51
-        '
-        Me.Label51.AutoSize = True
-        Me.Label51.Location = New System.Drawing.Point(6, 81)
-        Me.Label51.Name = "Label51"
-        Me.Label51.Size = New System.Drawing.Size(54, 13)
-        Me.Label51.TabIndex = 41
-        Me.Label51.Text = "Party Size"
         '
         'frmMain
         '
