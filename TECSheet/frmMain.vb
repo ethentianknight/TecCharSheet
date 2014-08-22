@@ -229,7 +229,10 @@ Public Class frmMain
     End Sub
 
     Private Sub btnAbilityAdd_Click(sender As Object, e As EventArgs) Handles btnAbilityAdd.Click
-        lstAbilities.Items.Add(txtAbilityStack.Text & vbTab & txtAbilityName.Text & vbTab & txtAbilityCost.Text & "/" & txtAbilityCostStack.Text)
+        Dim abilityList() As String
+        Dim addAbility() As String
+        addAbility = {txtAbilityStack.Text, txtAbilityName.Text, txtAbilityCost.Text, txtAbilityCostStack.Text}
+        lstAbilities.Items.Add(CStr(addAbility(0) & vbTab & addAbility(1) & vbTab & vbTab & addAbility(2) & "/" & addAbility(3)))
         lstAbilities.SelectedIndex = lstAbilities.Items.Count - 1
     End Sub
 
