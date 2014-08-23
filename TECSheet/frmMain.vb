@@ -146,9 +146,7 @@ Public Class frmMain
         btnRollPerception.Click,
         btnRollHit.Click,
         btnAttack1Roll.Click,
-        btnAttack2Roll.Click,
-        btnDmg1Roll.Click,
-        btnDmg2Roll.Click
+        btnAttack2Roll.Click
         Dim tb As TextBox = CType(CType(sender, Button).Tag, TextBox)
         Dim output() = Roll20(CInt(tb.Text))
         Dim roll As Integer = output(0)
@@ -165,23 +163,9 @@ Public Class frmMain
 
     End Sub
 
-    Private Sub btnRollDEX_Click(sender As Object, e As EventArgs) Handles btnRollDEX.Click
-        Dim output() = Roll20(CInt(txtDex.Text))
-        Dim roll As Integer = output(0)
-        Dim fumble As Integer = output(1)
-        txtOutput.Text = roll
-        If fumble = 0 Then
-            txtOutput.BackColor = Color.Black
-        ElseIf fumble = 2 Then
-            txtOutput.BackColor = Color.Yellow
-        Else
-            txtOutput.BackColor = Color.WhiteSmoke
-        End If
-    End Sub
-
     Private Sub btnDmgRoll_Click(sender As Object, e As EventArgs) Handles btnDmg1Roll.Click,
         btnDmg2Roll.Click
-        Dim vals As TextBox() = CType(sender, TextBox())
+        Dim vals As TextBox() = CType(CType(sender, Button).Tag, TextBox())
         txtOutput.Text = RollDNum(vals(0).Text, vals(1).Text, vals(2).Text)
         txtOutput.BackColor = Color.WhiteSmoke
     End Sub

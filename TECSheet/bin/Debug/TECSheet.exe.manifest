@@ -42,14 +42,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="TECSheet.exe" size="99840">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="TECSheet.exe" size="101888">
       <assemblyIdentity name="TECSheet" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>nz42Frq9bu81m/zc3tHI45liQuFErbUtcJjyvJ9h3lQ=</dsig:DigestValue>
+        <dsig:DigestValue>Ah3yWCZNJsoPK5sLnxsryJDRxVP9kwJxgvHkXB6cPk0=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
