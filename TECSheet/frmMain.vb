@@ -358,11 +358,6 @@ Public Class frmMain
             MsgBox("There's no save file with that player name!")
         End Try
 
-
-
-
-
-
         Dim invFile As String = Application.StartupPath & "\" & txtName.Text & "inventory.txt"
         Try
             Dim inventory() As String = IO.File.ReadAllLines(invFile)
