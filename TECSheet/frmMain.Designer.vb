@@ -29,6 +29,10 @@ Partial Class frmMain
         Me.btnRollMND = New System.Windows.Forms.Button()
         Me.btnRollDEX = New System.Windows.Forms.Button()
         Me.btnRollSTR = New System.Windows.Forms.Button()
+        Me.cbLCKEnabled = New System.Windows.Forms.CheckBox()
+        Me.cbMNDEnabled = New System.Windows.Forms.CheckBox()
+        Me.cbDEXEnabled = New System.Windows.Forms.CheckBox()
+        Me.cbSTREnabled = New System.Windows.Forms.CheckBox()
         Me.txtLCK = New System.Windows.Forms.TextBox()
         Me.txtMND = New System.Windows.Forms.TextBox()
         Me.Label3 = New System.Windows.Forms.Label()
@@ -38,6 +42,11 @@ Partial Class frmMain
         Me.Label2 = New System.Windows.Forms.Label()
         Me.lblSTR = New System.Windows.Forms.Label()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.cbKPTog = New System.Windows.Forms.CheckBox()
+        Me.cbLPTog = New System.Windows.Forms.CheckBox()
+        Me.cbPPTog = New System.Windows.Forms.CheckBox()
+        Me.cbMPTog = New System.Windows.Forms.CheckBox()
+        Me.cbHPTog = New System.Windows.Forms.CheckBox()
         Me.txtKPTot = New System.Windows.Forms.TextBox()
         Me.txtLPTot = New System.Windows.Forms.TextBox()
         Me.txtPPTot = New System.Windows.Forms.TextBox()
@@ -196,13 +205,10 @@ Partial Class frmMain
         'cbNameEnabled
         '
         Me.cbNameEnabled.AutoSize = True
-        Me.cbNameEnabled.Checked = True
-        Me.cbNameEnabled.CheckState = System.Windows.Forms.CheckState.Checked
         Me.cbNameEnabled.Location = New System.Drawing.Point(12, 14)
         Me.cbNameEnabled.Name = "cbNameEnabled"
         Me.cbNameEnabled.Size = New System.Drawing.Size(15, 14)
         Me.cbNameEnabled.TabIndex = 1
-        Me.cbNameEnabled.TabStop = False
         Me.cbNameEnabled.UseVisualStyleBackColor = True
         '
         'grbStats
@@ -211,6 +217,10 @@ Partial Class frmMain
         Me.grbStats.Controls.Add(Me.btnRollMND)
         Me.grbStats.Controls.Add(Me.btnRollDEX)
         Me.grbStats.Controls.Add(Me.btnRollSTR)
+        Me.grbStats.Controls.Add(Me.cbLCKEnabled)
+        Me.grbStats.Controls.Add(Me.cbMNDEnabled)
+        Me.grbStats.Controls.Add(Me.cbDEXEnabled)
+        Me.grbStats.Controls.Add(Me.cbSTREnabled)
         Me.grbStats.Controls.Add(Me.txtLCK)
         Me.grbStats.Controls.Add(Me.txtMND)
         Me.grbStats.Controls.Add(Me.Label3)
@@ -222,7 +232,7 @@ Partial Class frmMain
         Me.grbStats.Location = New System.Drawing.Point(12, 38)
         Me.grbStats.Name = "grbStats"
         Me.grbStats.Size = New System.Drawing.Size(149, 120)
-        Me.grbStats.TabIndex = 1
+        Me.grbStats.TabIndex = 2
         Me.grbStats.TabStop = False
         Me.grbStats.Text = "Stats"
         '
@@ -232,7 +242,6 @@ Partial Class frmMain
         Me.btnRollLCK.Name = "btnRollLCK"
         Me.btnRollLCK.Size = New System.Drawing.Size(42, 23)
         Me.btnRollLCK.TabIndex = 4
-        Me.btnRollLCK.TabStop = False
         Me.btnRollLCK.Text = "Roll"
         Me.btnRollLCK.UseVisualStyleBackColor = True
         '
@@ -242,7 +251,6 @@ Partial Class frmMain
         Me.btnRollMND.Name = "btnRollMND"
         Me.btnRollMND.Size = New System.Drawing.Size(42, 23)
         Me.btnRollMND.TabIndex = 13
-        Me.btnRollMND.TabStop = False
         Me.btnRollMND.Text = "Roll"
         Me.btnRollMND.UseVisualStyleBackColor = True
         '
@@ -252,7 +260,6 @@ Partial Class frmMain
         Me.btnRollDEX.Name = "btnRollDEX"
         Me.btnRollDEX.Size = New System.Drawing.Size(42, 23)
         Me.btnRollDEX.TabIndex = 12
-        Me.btnRollDEX.TabStop = False
         Me.btnRollDEX.Text = "Roll"
         Me.btnRollDEX.UseVisualStyleBackColor = True
         '
@@ -262,24 +269,61 @@ Partial Class frmMain
         Me.btnRollSTR.Name = "btnRollSTR"
         Me.btnRollSTR.Size = New System.Drawing.Size(42, 23)
         Me.btnRollSTR.TabIndex = 3
-        Me.btnRollSTR.TabStop = False
         Me.btnRollSTR.Text = "Roll"
         Me.btnRollSTR.UseVisualStyleBackColor = True
         '
+        'cbLCKEnabled
+        '
+        Me.cbLCKEnabled.AutoSize = True
+        Me.cbLCKEnabled.Location = New System.Drawing.Point(6, 94)
+        Me.cbLCKEnabled.Name = "cbLCKEnabled"
+        Me.cbLCKEnabled.Size = New System.Drawing.Size(15, 14)
+        Me.cbLCKEnabled.TabIndex = 11
+        Me.cbLCKEnabled.UseVisualStyleBackColor = True
+        '
+        'cbMNDEnabled
+        '
+        Me.cbMNDEnabled.AutoSize = True
+        Me.cbMNDEnabled.Location = New System.Drawing.Point(6, 68)
+        Me.cbMNDEnabled.Name = "cbMNDEnabled"
+        Me.cbMNDEnabled.Size = New System.Drawing.Size(15, 14)
+        Me.cbMNDEnabled.TabIndex = 10
+        Me.cbMNDEnabled.UseVisualStyleBackColor = True
+        '
+        'cbDEXEnabled
+        '
+        Me.cbDEXEnabled.AutoSize = True
+        Me.cbDEXEnabled.Location = New System.Drawing.Point(6, 42)
+        Me.cbDEXEnabled.Name = "cbDEXEnabled"
+        Me.cbDEXEnabled.Size = New System.Drawing.Size(15, 14)
+        Me.cbDEXEnabled.TabIndex = 9
+        Me.cbDEXEnabled.UseVisualStyleBackColor = True
+        '
+        'cbSTREnabled
+        '
+        Me.cbSTREnabled.AutoSize = True
+        Me.cbSTREnabled.Location = New System.Drawing.Point(6, 16)
+        Me.cbSTREnabled.Name = "cbSTREnabled"
+        Me.cbSTREnabled.Size = New System.Drawing.Size(15, 14)
+        Me.cbSTREnabled.TabIndex = 3
+        Me.cbSTREnabled.UseVisualStyleBackColor = True
+        '
         'txtLCK
         '
+        Me.txtLCK.Enabled = False
         Me.txtLCK.Location = New System.Drawing.Point(58, 91)
         Me.txtLCK.Name = "txtLCK"
         Me.txtLCK.Size = New System.Drawing.Size(31, 20)
-        Me.txtLCK.TabIndex = 5
+        Me.txtLCK.TabIndex = 8
         Me.txtLCK.Text = "0"
         '
         'txtMND
         '
+        Me.txtMND.Enabled = False
         Me.txtMND.Location = New System.Drawing.Point(58, 65)
         Me.txtMND.Name = "txtMND"
         Me.txtMND.Size = New System.Drawing.Size(31, 20)
-        Me.txtMND.TabIndex = 4
+        Me.txtMND.TabIndex = 7
         Me.txtMND.Text = "0"
         '
         'Label3
@@ -293,18 +337,20 @@ Partial Class frmMain
         '
         'txtDex
         '
+        Me.txtDex.Enabled = False
         Me.txtDex.Location = New System.Drawing.Point(58, 39)
         Me.txtDex.Name = "txtDex"
         Me.txtDex.Size = New System.Drawing.Size(31, 20)
-        Me.txtDex.TabIndex = 3
+        Me.txtDex.TabIndex = 7
         Me.txtDex.Text = "0"
         '
         'txtSTR
         '
+        Me.txtSTR.Enabled = False
         Me.txtSTR.Location = New System.Drawing.Point(58, 13)
         Me.txtSTR.Name = "txtSTR"
         Me.txtSTR.Size = New System.Drawing.Size(31, 20)
-        Me.txtSTR.TabIndex = 2
+        Me.txtSTR.TabIndex = 3
         Me.txtSTR.Text = "0"
         '
         'Label1
@@ -336,6 +382,11 @@ Partial Class frmMain
         '
         'GroupBox1
         '
+        Me.GroupBox1.Controls.Add(Me.cbKPTog)
+        Me.GroupBox1.Controls.Add(Me.cbLPTog)
+        Me.GroupBox1.Controls.Add(Me.cbPPTog)
+        Me.GroupBox1.Controls.Add(Me.cbMPTog)
+        Me.GroupBox1.Controls.Add(Me.cbHPTog)
         Me.GroupBox1.Controls.Add(Me.txtKPTot)
         Me.GroupBox1.Controls.Add(Me.txtLPTot)
         Me.GroupBox1.Controls.Add(Me.txtPPTot)
@@ -360,48 +411,98 @@ Partial Class frmMain
         Me.GroupBox1.Location = New System.Drawing.Point(12, 164)
         Me.GroupBox1.Name = "GroupBox1"
         Me.GroupBox1.Size = New System.Drawing.Size(158, 185)
-        Me.GroupBox1.TabIndex = 4
+        Me.GroupBox1.TabIndex = 3
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Points"
         '
+        'cbKPTog
+        '
+        Me.cbKPTog.AutoSize = True
+        Me.cbKPTog.Location = New System.Drawing.Point(133, 122)
+        Me.cbKPTog.Name = "cbKPTog"
+        Me.cbKPTog.Size = New System.Drawing.Size(15, 14)
+        Me.cbKPTog.TabIndex = 29
+        Me.cbKPTog.UseVisualStyleBackColor = True
+        '
+        'cbLPTog
+        '
+        Me.cbLPTog.AutoSize = True
+        Me.cbLPTog.Location = New System.Drawing.Point(133, 96)
+        Me.cbLPTog.Name = "cbLPTog"
+        Me.cbLPTog.Size = New System.Drawing.Size(15, 14)
+        Me.cbLPTog.TabIndex = 28
+        Me.cbLPTog.UseVisualStyleBackColor = True
+        '
+        'cbPPTog
+        '
+        Me.cbPPTog.AutoSize = True
+        Me.cbPPTog.Location = New System.Drawing.Point(133, 70)
+        Me.cbPPTog.Name = "cbPPTog"
+        Me.cbPPTog.Size = New System.Drawing.Size(15, 14)
+        Me.cbPPTog.TabIndex = 27
+        Me.cbPPTog.UseVisualStyleBackColor = True
+        '
+        'cbMPTog
+        '
+        Me.cbMPTog.AutoSize = True
+        Me.cbMPTog.Location = New System.Drawing.Point(133, 44)
+        Me.cbMPTog.Name = "cbMPTog"
+        Me.cbMPTog.Size = New System.Drawing.Size(15, 14)
+        Me.cbMPTog.TabIndex = 26
+        Me.cbMPTog.UseVisualStyleBackColor = True
+        '
+        'cbHPTog
+        '
+        Me.cbHPTog.AutoSize = True
+        Me.cbHPTog.Location = New System.Drawing.Point(133, 18)
+        Me.cbHPTog.Name = "cbHPTog"
+        Me.cbHPTog.Size = New System.Drawing.Size(15, 14)
+        Me.cbHPTog.TabIndex = 25
+        Me.cbHPTog.UseVisualStyleBackColor = True
+        '
         'txtKPTot
         '
+        Me.txtKPTot.Enabled = False
         Me.txtKPTot.Location = New System.Drawing.Point(96, 119)
         Me.txtKPTot.Name = "txtKPTot"
         Me.txtKPTot.Size = New System.Drawing.Size(31, 20)
-        Me.txtKPTot.TabIndex = 10
+        Me.txtKPTot.TabIndex = 24
         Me.txtKPTot.Text = "0"
         '
         'txtLPTot
         '
+        Me.txtLPTot.Enabled = False
         Me.txtLPTot.Location = New System.Drawing.Point(96, 93)
         Me.txtLPTot.Name = "txtLPTot"
         Me.txtLPTot.Size = New System.Drawing.Size(31, 20)
-        Me.txtLPTot.TabIndex = 8
+        Me.txtLPTot.TabIndex = 23
         Me.txtLPTot.Text = "0"
         '
         'txtPPTot
         '
+        Me.txtPPTot.Enabled = False
         Me.txtPPTot.Location = New System.Drawing.Point(96, 67)
         Me.txtPPTot.Name = "txtPPTot"
         Me.txtPPTot.Size = New System.Drawing.Size(31, 20)
-        Me.txtPPTot.TabIndex = 6
+        Me.txtPPTot.TabIndex = 21
         Me.txtPPTot.Text = "0"
         '
         'txtMPTot
         '
+        Me.txtMPTot.Enabled = False
         Me.txtMPTot.Location = New System.Drawing.Point(96, 41)
         Me.txtMPTot.Name = "txtMPTot"
         Me.txtMPTot.Size = New System.Drawing.Size(31, 20)
-        Me.txtMPTot.TabIndex = 4
+        Me.txtMPTot.TabIndex = 22
         Me.txtMPTot.Text = "0"
         '
         'txtHPTot
         '
+        Me.txtHPTot.Enabled = False
         Me.txtHPTot.Location = New System.Drawing.Point(96, 15)
         Me.txtHPTot.Name = "txtHPTot"
         Me.txtHPTot.Size = New System.Drawing.Size(31, 20)
-        Me.txtHPTot.TabIndex = 2
+        Me.txtHPTot.TabIndex = 20
         Me.txtHPTot.Text = "0"
         '
         'Label13
@@ -454,7 +555,7 @@ Partial Class frmMain
         Me.txtKPTemp.Location = New System.Drawing.Point(41, 118)
         Me.txtKPTemp.Name = "txtKPTemp"
         Me.txtKPTemp.Size = New System.Drawing.Size(31, 20)
-        Me.txtKPTemp.TabIndex = 9
+        Me.txtKPTemp.TabIndex = 13
         Me.txtKPTemp.Text = "0"
         '
         'Label8
@@ -471,8 +572,7 @@ Partial Class frmMain
         Me.btnCalcPoints.Location = New System.Drawing.Point(47, 154)
         Me.btnCalcPoints.Name = "btnCalcPoints"
         Me.btnCalcPoints.Size = New System.Drawing.Size(80, 23)
-        Me.btnCalcPoints.TabIndex = 11
-        Me.btnCalcPoints.TabStop = False
+        Me.btnCalcPoints.TabIndex = 4
         Me.btnCalcPoints.Text = "Calculate"
         Me.btnCalcPoints.UseVisualStyleBackColor = True
         '
@@ -481,7 +581,7 @@ Partial Class frmMain
         Me.txtLPTemp.Location = New System.Drawing.Point(41, 92)
         Me.txtLPTemp.Name = "txtLPTemp"
         Me.txtLPTemp.Size = New System.Drawing.Size(31, 20)
-        Me.txtLPTemp.TabIndex = 7
+        Me.txtLPTemp.TabIndex = 8
         Me.txtLPTemp.Text = "0"
         '
         'txtPPTemp
@@ -489,7 +589,7 @@ Partial Class frmMain
         Me.txtPPTemp.Location = New System.Drawing.Point(41, 66)
         Me.txtPPTemp.Name = "txtPPTemp"
         Me.txtPPTemp.Size = New System.Drawing.Size(31, 20)
-        Me.txtPPTemp.TabIndex = 5
+        Me.txtPPTemp.TabIndex = 7
         Me.txtPPTemp.Text = "0"
         '
         'Label4
@@ -506,7 +606,7 @@ Partial Class frmMain
         Me.txtMPTemp.Location = New System.Drawing.Point(41, 40)
         Me.txtMPTemp.Name = "txtMPTemp"
         Me.txtMPTemp.Size = New System.Drawing.Size(31, 20)
-        Me.txtMPTemp.TabIndex = 3
+        Me.txtMPTemp.TabIndex = 7
         Me.txtMPTemp.Text = "0"
         '
         'txtHPTemp
@@ -514,7 +614,7 @@ Partial Class frmMain
         Me.txtHPTemp.Location = New System.Drawing.Point(41, 14)
         Me.txtHPTemp.Name = "txtHPTemp"
         Me.txtHPTemp.Size = New System.Drawing.Size(31, 20)
-        Me.txtHPTemp.TabIndex = 1
+        Me.txtHPTemp.TabIndex = 3
         Me.txtHPTemp.Text = "0"
         '
         'Label5
@@ -572,7 +672,7 @@ Partial Class frmMain
         Me.GroupBox2.Location = New System.Drawing.Point(167, 14)
         Me.GroupBox2.Name = "GroupBox2"
         Me.GroupBox2.Size = New System.Drawing.Size(339, 97)
-        Me.GroupBox2.TabIndex = 2
+        Me.GroupBox2.TabIndex = 4
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "Bonuses"
         '
@@ -582,7 +682,6 @@ Partial Class frmMain
         Me.btnRollHit.Name = "btnRollHit"
         Me.btnRollHit.Size = New System.Drawing.Size(42, 23)
         Me.btnRollHit.TabIndex = 39
-        Me.btnRollHit.TabStop = False
         Me.btnRollHit.Text = "Roll"
         Me.btnRollHit.UseVisualStyleBackColor = True
         '
@@ -592,7 +691,6 @@ Partial Class frmMain
         Me.btnRollPerception.Name = "btnRollPerception"
         Me.btnRollPerception.Size = New System.Drawing.Size(42, 23)
         Me.btnRollPerception.TabIndex = 38
-        Me.btnRollPerception.TabStop = False
         Me.btnRollPerception.Text = "Roll"
         Me.btnRollPerception.UseVisualStyleBackColor = True
         '
@@ -602,7 +700,6 @@ Partial Class frmMain
         Me.btnRollDodge.Name = "btnRollDodge"
         Me.btnRollDodge.Size = New System.Drawing.Size(42, 23)
         Me.btnRollDodge.TabIndex = 14
-        Me.btnRollDodge.TabStop = False
         Me.btnRollDodge.Text = "Roll"
         Me.btnRollDodge.UseVisualStyleBackColor = True
         '
@@ -629,7 +726,7 @@ Partial Class frmMain
         Me.txtHitBonus.Location = New System.Drawing.Point(125, 66)
         Me.txtHitBonus.Name = "txtHitBonus"
         Me.txtHitBonus.Size = New System.Drawing.Size(31, 20)
-        Me.txtHitBonus.TabIndex = 3
+        Me.txtHitBonus.TabIndex = 35
         Me.txtHitBonus.Text = "0"
         '
         'Label20
@@ -718,7 +815,7 @@ Partial Class frmMain
         Me.txtPerceptionBonus.Location = New System.Drawing.Point(125, 40)
         Me.txtPerceptionBonus.Name = "txtPerceptionBonus"
         Me.txtPerceptionBonus.Size = New System.Drawing.Size(31, 20)
-        Me.txtPerceptionBonus.TabIndex = 2
+        Me.txtPerceptionBonus.TabIndex = 22
         Me.txtPerceptionBonus.Text = "0"
         '
         'txtDodgeBonus
@@ -726,7 +823,7 @@ Partial Class frmMain
         Me.txtDodgeBonus.Location = New System.Drawing.Point(125, 14)
         Me.txtDodgeBonus.Name = "txtDodgeBonus"
         Me.txtDodgeBonus.Size = New System.Drawing.Size(31, 20)
-        Me.txtDodgeBonus.TabIndex = 1
+        Me.txtDodgeBonus.TabIndex = 20
         Me.txtDodgeBonus.Text = "0"
         '
         'Label17
@@ -754,7 +851,6 @@ Partial Class frmMain
         Me.txtPerceptionMND.Name = "txtPerceptionMND"
         Me.txtPerceptionMND.Size = New System.Drawing.Size(31, 20)
         Me.txtPerceptionMND.TabIndex = 7
-        Me.txtPerceptionMND.TabStop = False
         Me.txtPerceptionMND.Text = "0"
         '
         'txtDodgeDEX
@@ -763,7 +859,7 @@ Partial Class frmMain
         Me.txtDodgeDEX.Location = New System.Drawing.Point(70, 14)
         Me.txtDodgeDEX.Name = "txtDodgeDEX"
         Me.txtDodgeDEX.Size = New System.Drawing.Size(31, 20)
-        Me.txtDodgeDEX.TabIndex = 1
+        Me.txtDodgeDEX.TabIndex = 3
         Me.txtDodgeDEX.Text = "0"
         '
         'Label21
@@ -795,7 +891,7 @@ Partial Class frmMain
         Me.GroupBox3.Location = New System.Drawing.Point(176, 304)
         Me.GroupBox3.Name = "GroupBox3"
         Me.GroupBox3.Size = New System.Drawing.Size(158, 70)
-        Me.GroupBox3.TabIndex = 5
+        Me.GroupBox3.TabIndex = 30
         Me.GroupBox3.TabStop = False
         Me.GroupBox3.Text = "Armor"
         '
@@ -804,7 +900,7 @@ Partial Class frmMain
         Me.txtArmorRR.Location = New System.Drawing.Point(107, 14)
         Me.txtArmorRR.Name = "txtArmorRR"
         Me.txtArmorRR.Size = New System.Drawing.Size(31, 20)
-        Me.txtArmorRR.TabIndex = 2
+        Me.txtArmorRR.TabIndex = 20
         Me.txtArmorRR.Text = "0"
         '
         'Label28
@@ -821,14 +917,14 @@ Partial Class frmMain
         Me.txtArmorMisc.Location = New System.Drawing.Point(41, 40)
         Me.txtArmorMisc.Name = "txtArmorMisc"
         Me.txtArmorMisc.Size = New System.Drawing.Size(97, 20)
-        Me.txtArmorMisc.TabIndex = 3
+        Me.txtArmorMisc.TabIndex = 7
         '
         'txtArmorRT
         '
         Me.txtArmorRT.Location = New System.Drawing.Point(41, 14)
         Me.txtArmorRT.Name = "txtArmorRT"
         Me.txtArmorRT.Size = New System.Drawing.Size(31, 20)
-        Me.txtArmorRT.TabIndex = 1
+        Me.txtArmorRT.TabIndex = 3
         Me.txtArmorRT.Text = "0"
         '
         'Label31
@@ -908,7 +1004,7 @@ Partial Class frmMain
         Me.GroupBox4.Location = New System.Drawing.Point(176, 117)
         Me.GroupBox4.Name = "GroupBox4"
         Me.GroupBox4.Size = New System.Drawing.Size(371, 181)
-        Me.GroupBox4.TabIndex = 3
+        Me.GroupBox4.TabIndex = 40
         Me.GroupBox4.TabStop = False
         Me.GroupBox4.Text = "Rolls"
         '
@@ -917,7 +1013,7 @@ Partial Class frmMain
         Me.txtRoll2DieSides.Location = New System.Drawing.Point(184, 146)
         Me.txtRoll2DieSides.Name = "txtRoll2DieSides"
         Me.txtRoll2DieSides.Size = New System.Drawing.Size(22, 20)
-        Me.txtRoll2DieSides.TabIndex = 17
+        Me.txtRoll2DieSides.TabIndex = 67
         Me.txtRoll2DieSides.Text = "0"
         '
         'Label46
@@ -934,7 +1030,7 @@ Partial Class frmMain
         Me.txtRoll2DieCount.Location = New System.Drawing.Point(144, 146)
         Me.txtRoll2DieCount.Name = "txtRoll2DieCount"
         Me.txtRoll2DieCount.Size = New System.Drawing.Size(22, 20)
-        Me.txtRoll2DieCount.TabIndex = 16
+        Me.txtRoll2DieCount.TabIndex = 65
         Me.txtRoll2DieCount.Text = "0"
         '
         'Label48
@@ -952,7 +1048,6 @@ Partial Class frmMain
         Me.btnRoll2Roll.Name = "btnRoll2Roll"
         Me.btnRoll2Roll.Size = New System.Drawing.Size(42, 23)
         Me.btnRoll2Roll.TabIndex = 60
-        Me.btnRoll2Roll.TabStop = False
         Me.btnRoll2Roll.Text = "Roll"
         Me.btnRoll2Roll.UseVisualStyleBackColor = True
         '
@@ -979,7 +1074,7 @@ Partial Class frmMain
         Me.txtRoll2Bonus.Location = New System.Drawing.Point(70, 146)
         Me.txtRoll2Bonus.Name = "txtRoll2Bonus"
         Me.txtRoll2Bonus.Size = New System.Drawing.Size(50, 20)
-        Me.txtRoll2Bonus.TabIndex = 15
+        Me.txtRoll2Bonus.TabIndex = 61
         Me.txtRoll2Bonus.Text = "0"
         '
         'Label50
@@ -996,7 +1091,7 @@ Partial Class frmMain
         Me.txtRoll1DieSides.Location = New System.Drawing.Point(184, 120)
         Me.txtRoll1DieSides.Name = "txtRoll1DieSides"
         Me.txtRoll1DieSides.Size = New System.Drawing.Size(22, 20)
-        Me.txtRoll1DieSides.TabIndex = 14
+        Me.txtRoll1DieSides.TabIndex = 58
         Me.txtRoll1DieSides.Text = "0"
         '
         'txtDmg2DieSides
@@ -1004,7 +1099,7 @@ Partial Class frmMain
         Me.txtDmg2DieSides.Location = New System.Drawing.Point(230, 93)
         Me.txtDmg2DieSides.Name = "txtDmg2DieSides"
         Me.txtDmg2DieSides.Size = New System.Drawing.Size(22, 20)
-        Me.txtDmg2DieSides.TabIndex = 11
+        Me.txtDmg2DieSides.TabIndex = 58
         Me.txtDmg2DieSides.Text = "0"
         '
         'Label43
@@ -1021,7 +1116,7 @@ Partial Class frmMain
         Me.txtDMG1DieSides.Location = New System.Drawing.Point(230, 40)
         Me.txtDMG1DieSides.Name = "txtDMG1DieSides"
         Me.txtDMG1DieSides.Size = New System.Drawing.Size(22, 20)
-        Me.txtDMG1DieSides.TabIndex = 6
+        Me.txtDMG1DieSides.TabIndex = 36
         Me.txtDMG1DieSides.Text = "0"
         '
         'txtRoll1DieCount
@@ -1029,7 +1124,7 @@ Partial Class frmMain
         Me.txtRoll1DieCount.Location = New System.Drawing.Point(144, 120)
         Me.txtRoll1DieCount.Name = "txtRoll1DieCount"
         Me.txtRoll1DieCount.Size = New System.Drawing.Size(22, 20)
-        Me.txtRoll1DieCount.TabIndex = 13
+        Me.txtRoll1DieCount.TabIndex = 56
         Me.txtRoll1DieCount.Text = "0"
         '
         'Label32
@@ -1064,7 +1159,7 @@ Partial Class frmMain
         Me.txtDmg2DieCount.Location = New System.Drawing.Point(190, 93)
         Me.txtDmg2DieCount.Name = "txtDmg2DieCount"
         Me.txtDmg2DieCount.Size = New System.Drawing.Size(22, 20)
-        Me.txtDmg2DieCount.TabIndex = 10
+        Me.txtDmg2DieCount.TabIndex = 56
         Me.txtDmg2DieCount.Text = "0"
         '
         'btnRoll1Roll
@@ -1073,7 +1168,6 @@ Partial Class frmMain
         Me.btnRoll1Roll.Name = "btnRoll1Roll"
         Me.btnRoll1Roll.Size = New System.Drawing.Size(42, 23)
         Me.btnRoll1Roll.TabIndex = 49
-        Me.btnRoll1Roll.TabStop = False
         Me.btnRoll1Roll.Text = "Roll"
         Me.btnRoll1Roll.UseVisualStyleBackColor = True
         '
@@ -1082,7 +1176,7 @@ Partial Class frmMain
         Me.txtDmg1DieCount.Location = New System.Drawing.Point(190, 40)
         Me.txtDmg1DieCount.Name = "txtDmg1DieCount"
         Me.txtDmg1DieCount.Size = New System.Drawing.Size(22, 20)
-        Me.txtDmg1DieCount.TabIndex = 5
+        Me.txtDmg1DieCount.TabIndex = 34
         Me.txtDmg1DieCount.Text = "0"
         '
         'txtRoll1Tot
@@ -1126,7 +1220,7 @@ Partial Class frmMain
         Me.txtRoll1Bonus.Location = New System.Drawing.Point(70, 120)
         Me.txtRoll1Bonus.Name = "txtRoll1Bonus"
         Me.txtRoll1Bonus.Size = New System.Drawing.Size(50, 20)
-        Me.txtRoll1Bonus.TabIndex = 12
+        Me.txtRoll1Bonus.TabIndex = 51
         Me.txtRoll1Bonus.Text = "0"
         '
         'cmbDmg2Stat
@@ -1136,7 +1230,7 @@ Partial Class frmMain
         Me.cmbDmg2Stat.Location = New System.Drawing.Point(70, 93)
         Me.cmbDmg2Stat.Name = "cmbDmg2Stat"
         Me.cmbDmg2Stat.Size = New System.Drawing.Size(50, 21)
-        Me.cmbDmg2Stat.TabIndex = 8
+        Me.cmbDmg2Stat.TabIndex = 54
         Me.cmbDmg2Stat.Text = "DEX"
         '
         'cmbDmg1Stat
@@ -1146,7 +1240,7 @@ Partial Class frmMain
         Me.cmbDmg1Stat.Location = New System.Drawing.Point(70, 40)
         Me.cmbDmg1Stat.Name = "cmbDmg1Stat"
         Me.cmbDmg1Stat.Size = New System.Drawing.Size(50, 21)
-        Me.cmbDmg1Stat.TabIndex = 3
+        Me.cmbDmg1Stat.TabIndex = 32
         Me.cmbDmg1Stat.Text = "DEX"
         '
         'Label47
@@ -1164,7 +1258,6 @@ Partial Class frmMain
         Me.btnDmg2Roll.Name = "btnDmg2Roll"
         Me.btnDmg2Roll.Size = New System.Drawing.Size(42, 23)
         Me.btnDmg2Roll.TabIndex = 49
-        Me.btnDmg2Roll.TabStop = False
         Me.btnDmg2Roll.Text = "Roll"
         Me.btnDmg2Roll.UseVisualStyleBackColor = True
         '
@@ -1174,7 +1267,6 @@ Partial Class frmMain
         Me.btnDmg1Roll.Name = "btnDmg1Roll"
         Me.btnDmg1Roll.Size = New System.Drawing.Size(42, 23)
         Me.btnDmg1Roll.TabIndex = 27
-        Me.btnDmg1Roll.TabStop = False
         Me.btnDmg1Roll.Text = "Roll"
         Me.btnDmg1Roll.UseVisualStyleBackColor = True
         '
@@ -1219,7 +1311,7 @@ Partial Class frmMain
         Me.txtDmg2Bonus.Location = New System.Drawing.Point(144, 93)
         Me.txtDmg2Bonus.Name = "txtDmg2Bonus"
         Me.txtDmg2Bonus.Size = New System.Drawing.Size(22, 20)
-        Me.txtDmg2Bonus.TabIndex = 9
+        Me.txtDmg2Bonus.TabIndex = 51
         Me.txtDmg2Bonus.Text = "0"
         '
         'txtDmg1Bonus
@@ -1227,7 +1319,7 @@ Partial Class frmMain
         Me.txtDmg1Bonus.Location = New System.Drawing.Point(144, 40)
         Me.txtDmg1Bonus.Name = "txtDmg1Bonus"
         Me.txtDmg1Bonus.Size = New System.Drawing.Size(22, 20)
-        Me.txtDmg1Bonus.TabIndex = 4
+        Me.txtDmg1Bonus.TabIndex = 29
         Me.txtDmg1Bonus.Text = "0"
         '
         'Label38
@@ -1272,7 +1364,6 @@ Partial Class frmMain
         Me.btnAttack2Roll.Name = "btnAttack2Roll"
         Me.btnAttack2Roll.Size = New System.Drawing.Size(42, 23)
         Me.btnAttack2Roll.TabIndex = 43
-        Me.btnAttack2Roll.TabStop = False
         Me.btnAttack2Roll.Text = "Roll"
         Me.btnAttack2Roll.UseVisualStyleBackColor = True
         '
@@ -1282,7 +1373,6 @@ Partial Class frmMain
         Me.btnAttack1Roll.Name = "btnAttack1Roll"
         Me.btnAttack1Roll.Size = New System.Drawing.Size(42, 23)
         Me.btnAttack1Roll.TabIndex = 14
-        Me.btnAttack1Roll.TabStop = False
         Me.btnAttack1Roll.Text = "Roll"
         Me.btnAttack1Roll.UseVisualStyleBackColor = True
         '
@@ -1327,7 +1417,7 @@ Partial Class frmMain
         Me.txtAttack2Bonus.Location = New System.Drawing.Point(125, 67)
         Me.txtAttack2Bonus.Name = "txtAttack2Bonus"
         Me.txtAttack2Bonus.Size = New System.Drawing.Size(31, 20)
-        Me.txtAttack2Bonus.TabIndex = 7
+        Me.txtAttack2Bonus.TabIndex = 45
         Me.txtAttack2Bonus.Text = "0"
         '
         'txtAttack1Bonus
@@ -1335,7 +1425,7 @@ Partial Class frmMain
         Me.txtAttack1Bonus.Location = New System.Drawing.Point(125, 14)
         Me.txtAttack1Bonus.Name = "txtAttack1Bonus"
         Me.txtAttack1Bonus.Size = New System.Drawing.Size(31, 20)
-        Me.txtAttack1Bonus.TabIndex = 2
+        Me.txtAttack1Bonus.TabIndex = 20
         Me.txtAttack1Bonus.Text = "0"
         '
         'Label41
@@ -1371,7 +1461,7 @@ Partial Class frmMain
         Me.txtAttack1Hit.Location = New System.Drawing.Point(70, 14)
         Me.txtAttack1Hit.Name = "txtAttack1Hit"
         Me.txtAttack1Hit.Size = New System.Drawing.Size(31, 20)
-        Me.txtAttack1Hit.TabIndex = 1
+        Me.txtAttack1Hit.TabIndex = 3
         Me.txtAttack1Hit.Text = "0"
         '
         'Label42
@@ -1404,7 +1494,7 @@ Partial Class frmMain
         Me.GroupBox5.Location = New System.Drawing.Point(562, 12)
         Me.GroupBox5.Name = "GroupBox5"
         Me.GroupBox5.Size = New System.Drawing.Size(241, 161)
-        Me.GroupBox5.TabIndex = 6
+        Me.GroupBox5.TabIndex = 31
         Me.GroupBox5.TabStop = False
         Me.GroupBox5.Text = "Inventory"
         '
@@ -1415,7 +1505,6 @@ Partial Class frmMain
         Me.lstInventory.Name = "lstInventory"
         Me.lstInventory.Size = New System.Drawing.Size(182, 108)
         Me.lstInventory.TabIndex = 41
-        Me.lstInventory.TabStop = False
         '
         'btnInventoryUpdate
         '
@@ -1423,7 +1512,6 @@ Partial Class frmMain
         Me.btnInventoryUpdate.Name = "btnInventoryUpdate"
         Me.btnInventoryUpdate.Size = New System.Drawing.Size(42, 23)
         Me.btnInventoryUpdate.TabIndex = 42
-        Me.btnInventoryUpdate.TabStop = False
         Me.btnInventoryUpdate.Text = "UpD"
         Me.btnInventoryUpdate.UseVisualStyleBackColor = True
         '
@@ -1432,7 +1520,7 @@ Partial Class frmMain
         Me.txtInventoryName.Location = New System.Drawing.Point(41, 14)
         Me.txtInventoryName.Name = "txtInventoryName"
         Me.txtInventoryName.Size = New System.Drawing.Size(97, 20)
-        Me.txtInventoryName.TabIndex = 2
+        Me.txtInventoryName.TabIndex = 20
         '
         'btnInventorySubtract
         '
@@ -1440,7 +1528,6 @@ Partial Class frmMain
         Me.btnInventorySubtract.Name = "btnInventorySubtract"
         Me.btnInventorySubtract.Size = New System.Drawing.Size(42, 23)
         Me.btnInventorySubtract.TabIndex = 41
-        Me.btnInventorySubtract.TabStop = False
         Me.btnInventorySubtract.Text = "Sub"
         Me.btnInventorySubtract.UseVisualStyleBackColor = True
         '
@@ -1449,7 +1536,7 @@ Partial Class frmMain
         Me.txtInventoryWeight.Location = New System.Drawing.Point(144, 14)
         Me.txtInventoryWeight.Name = "txtInventoryWeight"
         Me.txtInventoryWeight.Size = New System.Drawing.Size(44, 20)
-        Me.txtInventoryWeight.TabIndex = 3
+        Me.txtInventoryWeight.TabIndex = 7
         '
         'btnAdd
         '
@@ -1457,7 +1544,6 @@ Partial Class frmMain
         Me.btnAdd.Name = "btnAdd"
         Me.btnAdd.Size = New System.Drawing.Size(42, 23)
         Me.btnAdd.TabIndex = 40
-        Me.btnAdd.TabStop = False
         Me.btnAdd.Text = "Add"
         Me.btnAdd.UseVisualStyleBackColor = True
         '
@@ -1466,7 +1552,7 @@ Partial Class frmMain
         Me.txtInventoryCount.Location = New System.Drawing.Point(9, 14)
         Me.txtInventoryCount.Name = "txtInventoryCount"
         Me.txtInventoryCount.Size = New System.Drawing.Size(26, 20)
-        Me.txtInventoryCount.TabIndex = 1
+        Me.txtInventoryCount.TabIndex = 3
         '
         'GroupBox6
         '
@@ -1481,7 +1567,7 @@ Partial Class frmMain
         Me.GroupBox6.Location = New System.Drawing.Point(562, 180)
         Me.GroupBox6.Name = "GroupBox6"
         Me.GroupBox6.Size = New System.Drawing.Size(336, 194)
-        Me.GroupBox6.TabIndex = 7
+        Me.GroupBox6.TabIndex = 43
         Me.GroupBox6.TabStop = False
         Me.GroupBox6.Text = "Abilities"
         '
@@ -1490,7 +1576,7 @@ Partial Class frmMain
         Me.txtAbilityCostStack.Location = New System.Drawing.Point(176, 14)
         Me.txtAbilityCostStack.Name = "txtAbilityCostStack"
         Me.txtAbilityCostStack.Size = New System.Drawing.Size(29, 20)
-        Me.txtAbilityCostStack.TabIndex = 4
+        Me.txtAbilityCostStack.TabIndex = 43
         '
         'lstAbilities
         '
@@ -1499,7 +1585,6 @@ Partial Class frmMain
         Me.lstAbilities.Name = "lstAbilities"
         Me.lstAbilities.Size = New System.Drawing.Size(276, 147)
         Me.lstAbilities.TabIndex = 41
-        Me.lstAbilities.TabStop = False
         '
         'btnAbilityUpdate
         '
@@ -1507,7 +1592,6 @@ Partial Class frmMain
         Me.btnAbilityUpdate.Name = "btnAbilityUpdate"
         Me.btnAbilityUpdate.Size = New System.Drawing.Size(42, 23)
         Me.btnAbilityUpdate.TabIndex = 42
-        Me.btnAbilityUpdate.TabStop = False
         Me.btnAbilityUpdate.Text = "UpD"
         Me.btnAbilityUpdate.UseVisualStyleBackColor = True
         '
@@ -1516,7 +1600,7 @@ Partial Class frmMain
         Me.txtAbilityName.Location = New System.Drawing.Point(41, 14)
         Me.txtAbilityName.Name = "txtAbilityName"
         Me.txtAbilityName.Size = New System.Drawing.Size(97, 20)
-        Me.txtAbilityName.TabIndex = 2
+        Me.txtAbilityName.TabIndex = 20
         '
         'btnAbilitySubtract
         '
@@ -1524,7 +1608,6 @@ Partial Class frmMain
         Me.btnAbilitySubtract.Name = "btnAbilitySubtract"
         Me.btnAbilitySubtract.Size = New System.Drawing.Size(42, 23)
         Me.btnAbilitySubtract.TabIndex = 41
-        Me.btnAbilitySubtract.TabStop = False
         Me.btnAbilitySubtract.Text = "Sub"
         Me.btnAbilitySubtract.UseVisualStyleBackColor = True
         '
@@ -1533,7 +1616,7 @@ Partial Class frmMain
         Me.txtAbilityCost.Location = New System.Drawing.Point(144, 14)
         Me.txtAbilityCost.Name = "txtAbilityCost"
         Me.txtAbilityCost.Size = New System.Drawing.Size(29, 20)
-        Me.txtAbilityCost.TabIndex = 3
+        Me.txtAbilityCost.TabIndex = 7
         '
         'btnAbilityAdd
         '
@@ -1541,7 +1624,6 @@ Partial Class frmMain
         Me.btnAbilityAdd.Name = "btnAbilityAdd"
         Me.btnAbilityAdd.Size = New System.Drawing.Size(42, 23)
         Me.btnAbilityAdd.TabIndex = 40
-        Me.btnAbilityAdd.TabStop = False
         Me.btnAbilityAdd.Text = "Add"
         Me.btnAbilityAdd.UseVisualStyleBackColor = True
         '
@@ -1550,7 +1632,7 @@ Partial Class frmMain
         Me.txtAbilityStack.Location = New System.Drawing.Point(9, 14)
         Me.txtAbilityStack.Name = "txtAbilityStack"
         Me.txtAbilityStack.Size = New System.Drawing.Size(26, 20)
-        Me.txtAbilityStack.TabIndex = 1
+        Me.txtAbilityStack.TabIndex = 3
         '
         'GroupBox7
         '
@@ -1567,7 +1649,7 @@ Partial Class frmMain
         Me.GroupBox7.Location = New System.Drawing.Point(809, 14)
         Me.GroupBox7.Name = "GroupBox7"
         Me.GroupBox7.Size = New System.Drawing.Size(199, 111)
-        Me.GroupBox7.TabIndex = 8
+        Me.GroupBox7.TabIndex = 40
         Me.GroupBox7.TabStop = False
         Me.GroupBox7.Text = "AP"
         '
@@ -1585,7 +1667,7 @@ Partial Class frmMain
         Me.txtPartySize.Location = New System.Drawing.Point(70, 78)
         Me.txtPartySize.Name = "txtPartySize"
         Me.txtPartySize.Size = New System.Drawing.Size(31, 20)
-        Me.txtPartySize.TabIndex = 5
+        Me.txtPartySize.TabIndex = 40
         Me.txtPartySize.Text = "0"
         '
         'btnAPCalc
@@ -1594,7 +1676,6 @@ Partial Class frmMain
         Me.btnAPCalc.Name = "btnAPCalc"
         Me.btnAPCalc.Size = New System.Drawing.Size(70, 23)
         Me.btnAPCalc.TabIndex = 39
-        Me.btnAPCalc.TabStop = False
         Me.btnAPCalc.Text = "Calculate"
         Me.btnAPCalc.UseVisualStyleBackColor = True
         '
@@ -1603,7 +1684,7 @@ Partial Class frmMain
         Me.txtAPStraightGain.Location = New System.Drawing.Point(156, 42)
         Me.txtAPStraightGain.Name = "txtAPStraightGain"
         Me.txtAPStraightGain.Size = New System.Drawing.Size(31, 20)
-        Me.txtAPStraightGain.TabIndex = 4
+        Me.txtAPStraightGain.TabIndex = 33
         Me.txtAPStraightGain.Text = "0"
         '
         'Label53
@@ -1620,7 +1701,7 @@ Partial Class frmMain
         Me.txtAPTotal.Location = New System.Drawing.Point(125, 14)
         Me.txtAPTotal.Name = "txtAPTotal"
         Me.txtAPTotal.Size = New System.Drawing.Size(31, 20)
-        Me.txtAPTotal.TabIndex = 2
+        Me.txtAPTotal.TabIndex = 20
         Me.txtAPTotal.Text = "0"
         '
         'Label58
@@ -1637,7 +1718,7 @@ Partial Class frmMain
         Me.txtAPNormalGain.Location = New System.Drawing.Point(70, 40)
         Me.txtAPNormalGain.Name = "txtAPNormalGain"
         Me.txtAPNormalGain.Size = New System.Drawing.Size(31, 20)
-        Me.txtAPNormalGain.TabIndex = 3
+        Me.txtAPNormalGain.TabIndex = 7
         Me.txtAPNormalGain.Text = "0"
         '
         'txtAPCurrent
@@ -1645,7 +1726,7 @@ Partial Class frmMain
         Me.txtAPCurrent.Location = New System.Drawing.Point(70, 14)
         Me.txtAPCurrent.Name = "txtAPCurrent"
         Me.txtAPCurrent.Size = New System.Drawing.Size(31, 20)
-        Me.txtAPCurrent.TabIndex = 1
+        Me.txtAPCurrent.TabIndex = 3
         Me.txtAPCurrent.Text = "0"
         '
         'Label59
@@ -1670,7 +1751,7 @@ Partial Class frmMain
         Me.btnSave.Location = New System.Drawing.Point(919, 337)
         Me.btnSave.Name = "btnSave"
         Me.btnSave.Size = New System.Drawing.Size(70, 23)
-        Me.btnSave.TabIndex = 10
+        Me.btnSave.TabIndex = 40
         Me.btnSave.Text = "Save"
         Me.btnSave.UseVisualStyleBackColor = True
         '
@@ -1679,7 +1760,7 @@ Partial Class frmMain
         Me.btnLoad.Location = New System.Drawing.Point(919, 308)
         Me.btnLoad.Name = "btnLoad"
         Me.btnLoad.Size = New System.Drawing.Size(70, 23)
-        Me.btnLoad.TabIndex = 9
+        Me.btnLoad.TabIndex = 45
         Me.btnLoad.Text = "Load"
         Me.btnLoad.UseVisualStyleBackColor = True
         '
@@ -1731,6 +1812,10 @@ Partial Class frmMain
     Friend WithEvents btnRollMND As System.Windows.Forms.Button
     Friend WithEvents btnRollDEX As System.Windows.Forms.Button
     Friend WithEvents btnRollSTR As System.Windows.Forms.Button
+    Friend WithEvents cbLCKEnabled As System.Windows.Forms.CheckBox
+    Friend WithEvents cbMNDEnabled As System.Windows.Forms.CheckBox
+    Friend WithEvents cbDEXEnabled As System.Windows.Forms.CheckBox
+    Friend WithEvents cbSTREnabled As System.Windows.Forms.CheckBox
     Friend WithEvents txtLCK As System.Windows.Forms.TextBox
     Friend WithEvents txtMND As System.Windows.Forms.TextBox
     Friend WithEvents Label3 As System.Windows.Forms.Label
@@ -1739,6 +1824,11 @@ Partial Class frmMain
     Friend WithEvents Label1 As System.Windows.Forms.Label
     Friend WithEvents Label2 As System.Windows.Forms.Label
     Friend WithEvents GroupBox1 As System.Windows.Forms.GroupBox
+    Friend WithEvents cbKPTog As System.Windows.Forms.CheckBox
+    Friend WithEvents cbLPTog As System.Windows.Forms.CheckBox
+    Friend WithEvents cbPPTog As System.Windows.Forms.CheckBox
+    Friend WithEvents cbMPTog As System.Windows.Forms.CheckBox
+    Friend WithEvents cbHPTog As System.Windows.Forms.CheckBox
     Friend WithEvents txtKPTot As System.Windows.Forms.TextBox
     Friend WithEvents txtLPTot As System.Windows.Forms.TextBox
     Friend WithEvents txtPPTot As System.Windows.Forms.TextBox

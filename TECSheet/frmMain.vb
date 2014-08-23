@@ -1,16 +1,12 @@
 ﻿'The Ethentian Chronicles Digital Character Sheet
-'Mark Davis and Daniel Holloway, 2014
+'Mark Davis, 2014
 'Very alpha.
 
 Imports System.Runtime.InteropServices
 
 Public Class frmMain
 
-    Sub UpdateAll() '<-- simpler way to do this for all math-based text boxes?
-        If txtSTR.Text = "" Then
-            txtSTR.Text = 0
-            'Move insertion point to front here.
-        End If
+    Sub UpdateAll()
         Try
             Dim dexDodgeBonus As Integer
             Dim lckDodgeBonus As Integer
@@ -55,7 +51,7 @@ Public Class frmMain
             txtRoll1Tot.Text = CInt(txtRoll1Bonus.Text)
             txtRoll2Tot.Text = CInt(txtRoll2Bonus.Text)
         Catch ex As Exception
-            MsgBox("Something went wrong while updating. Try again.")
+            MsgBox("Something went wrong. Try again.")
         End Try
     End Sub
 
@@ -93,36 +89,31 @@ Public Class frmMain
         Return ReturnNum
     End Function
 
-    Private Sub Tog_CheckedChanged(sender As Object, e As EventArgs) Handles txtSTR.TextChanged,
-                txtDex.TextChanged,
-                txtMND.TextChanged,
-                txtLCK.TextChanged,
-                txtDodgeBonus.TextChanged,
-                txtHitBonus.TextChanged,
-                txtPerceptionBonus.TextChanged,
-                txtAttack1Bonus.TextChanged,
-                txtDmg1Bonus.TextChanged,
-                txtDmg1DieCount.TextChanged,
-                txtDMG1DieSides.TextChanged,
-                cmbDmg1Stat.SelectedIndexChanged,
-                txtAttack2Bonus.TextChanged,
-                txtDmg2Bonus.TextChanged,
-                txtDmg2DieCount.TextChanged,
-                txtDmg2DieSides.TextChanged,
-                cmbDmg2Stat.SelectedIndexChanged,
-                txtRoll1Bonus.TextChanged,
-                txtRoll1DieCount.TextChanged,
-                txtRoll1DieSides.TextChanged,
-                txtRoll2Bonus.TextChanged,
-                txtRoll2DieCount.TextChanged,
-                txtRoll2DieSides.TextChanged
-
-        'Dim rb As TextBox = CType(sender, TextBox), con As Control = CType(rb.Tag, Control) --This code causes problems now that there are fewer check boxes.
-        'con.Enabled = rb.Enabled
-        UpdateAll() 'Causes instant errors on startup due to non-loaded form.
+    Private Sub Tog_CheckedChanged(sender As Object, e As EventArgs) Handles cbKPTog.CheckedChanged,
+        cbLPTog.CheckedChanged,
+        cbPPTog.CheckedChanged,
+        cbMPTog.CheckedChanged,
+        cbHPTog.CheckedChanged,
+        cbLCKEnabled.CheckedChanged,
+        cbMNDEnabled.CheckedChanged,
+        cbDEXEnabled.CheckedChanged,
+        cbSTREnabled.CheckedChanged,
+        cbNameEnabled.CheckedChanged
+        Dim rb As CheckBox = CType(sender, CheckBox),con As Control = CType(rb.Tag, Control)
+        con.Enabled = rb.Checked
+        UpdateAll()
     End Sub
 
     Private Sub frmMain_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        cbKPTog.Tag = txtKPTot
+        cbLPTog.Tag = txtKPTot
+        cbPPTog.Tag = txtPPTot
+        cbMPTog.Tag = txtMPTot
+        cbHPTog.Tag = txtHPTot
+        cbLCKEnabled.Tag = txtLCK
+        cbMNDEnabled.Tag = txtMND
+        cbDEXEnabled.Tag = txtDex
+        cbSTREnabled.Tag = txtSTR
         cbNameEnabled.Tag = txtName
         btnRollSTR.Tag = txtSTR
         btnRollDEX.Tag = txtDex
@@ -158,7 +149,7 @@ Public Class frmMain
         btnAttack2Roll.Click,
         btnDmg1Roll.Click,
         btnDmg2Roll.Click
-        Dim tb As TextBox = CType(CType(sender, Button).Tag, TextBox)       '<-- Causes problems on damage rolls
+        Dim tb As TextBox = CType(CType(sender, Button).Tag, TextBox)
         Dim output() = Roll20(CInt(tb.Text))
         Dim roll As Integer = output(0)
         Dim fumble As Integer = output(1)
@@ -229,10 +220,7 @@ Public Class frmMain
     End Sub
 
     Private Sub btnAbilityAdd_Click(sender As Object, e As EventArgs) Handles btnAbilityAdd.Click
-        Dim abilityList() As String
-        Dim addAbility() As String
-        addAbility = {txtAbilityStack.Text, txtAbilityName.Text, txtAbilityCost.Text, txtAbilityCostStack.Text}
-        lstAbilities.Items.Add(CStr(addAbility(0) & vbTab & addAbility(1) & vbTab & vbTab & addAbility(2) & "/" & addAbility(3)))
+        lstAbilities.Items.Add(txtAbilityStack.Text & vbTab & txtAbilityName.Text & vbTab & txtAbilityCost.Text & "/" & txtAbilityCostStack.Text)
         lstAbilities.SelectedIndex = lstAbilities.Items.Count - 1
     End Sub
 
@@ -417,10 +405,7 @@ Public Class frmMain
         Catch ex As Exception
             MsgBox("No abilities found!")
         End Try
-        Try
-            lstAbilities.SelectedIndex = 0
-        Catch ex As Exception
-        End Try
+        lstAbilities.SelectedIndex = 0
 
         UpdateAll()
     End Sub
@@ -465,4 +450,5 @@ Public Class frmMain
     <DllImport("user32.dll", CharSet:=CharSet.Auto)> _
     Private Shared Function SendMessage(ByVal hWnd As IntPtr, ByVal msg As Integer, ByVal wParam As Integer, <MarshalAs(UnmanagedType.LPWStr)> ByVal lParam As String) As Int32
     End Function
+
 End Class
