@@ -7,4 +7,9 @@
 5	Nimble	30/20
 3	Accurate	30/20
 	Slash Specialized	25/-
+1	Snap Kick	50/5
+2	Another Blow	50/10
+	Trained Fist	50/-
+4	Steel Fist	50/5
+0	Scrappy	50/-
 
